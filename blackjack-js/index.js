@@ -1,39 +1,29 @@
 
 
-let card1 = document.getElementById("card1")
-let card2 = document.getElementById("card2")
-let card3 = document.getElementById("card3")
+let cardsEl = document.getElementById("cards-el")
 let sum = document.getElementById("sum")
 let winner = document.getElementById('winner')
 let loser = document.getElementById("loser")
-// let num1 = 0
-
-// gets random number
-
+let allCards = []
 
 
 function startGame() {
     console.clear()
-    card1.innerText = " "
-    card2.innerText = " "
-    card3.innerText = " "
+    allCards = []
     winner.innerText = ""
     loser.innerText = ""
-    // let num1 = 0
-    // card1.innerText = 30
 
     function getRandomNumber(min, max) {
-         
-        let num1 = ((Math.floor)( Math.random() * (max - min) + min))  
-        let num2 = ((Math.floor)( Math.random() * (max - min) + min)) 
-        console.log(num1);
-        console.log(num2);  
         
-         card1.innerText = num1
-         card2.innerText = num2
-         result = num1 + num2
-         sum.textContent = "Sum:" +  result
+        allCards.push(((Math.floor)( Math.random() * (max - min) + min)) )
+        allCards.push(((Math.floor)( Math.random() * (max - min) + min)) )
+        console.log(allCards);
+        
 
+        cardsEl.innerText = allCards
+       
+        let result = allCards[0] + allCards[1]
+        sum.textContent = "Sum:" +  result
      }
     
     getRandomNumber(2,11)
@@ -41,15 +31,30 @@ function startGame() {
 }
 
 function newCard() {
+    let result = 0
+
+    for (let i = 0; i < allCards.length; i++) {
+          result += allCards[i];
+        
+    }
     // console.log(result);
+
     if (result < 21 ) {
         function getNewCard(min, max) {
-            let num3 = ((Math.floor)( Math.random() * (max - min) + min))      
-             console.log(num3);
-             card3.innerText = num3
-             result += num3
-             sum.textContent = "Sum:" +  result
-             console.log(result + " is the result");
+
+            allCards.push(((Math.floor)( Math.random() * (max - min) + min)) )
+
+           let newestCard = allCards[allCards.length- 1]
+            
+             cardsEl.innerText = allCards
+            
+            console.log(newestCard);
+            console.log(allCards);
+            result += newestCard
+            console.log(result);
+            
+            sum.textContent = "Sum: " +  result
+            
              if (result > 21 ){
                 console.log("You lost");
                 loser.innerText = "You lost"
@@ -61,7 +66,5 @@ function newCard() {
          getNewCard(2,11)
   
     }
-
-
 
 }
