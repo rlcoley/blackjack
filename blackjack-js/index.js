@@ -12,6 +12,7 @@ function startGame() {
     allCards = []
     winner.innerText = ""
     loser.innerText = ""
+    
 
     function getRandomNumber(min, max) {
         
@@ -55,13 +56,30 @@ function newCard() {
             
             sum.textContent = "Sum: " +  result
             
+            var btn = document.createElement("BUTTON");
+            btn.innerText = "New Game"
+            btn.onclick = function(event) {
+                startGame()
+            let btnremover = document.getElementsByTagName("BUTTON")[2]
+            btnremover.remove()
+            }
+            
+
              if (result > 21 ){
                 console.log("You lost");
-                loser.innerText = "You lost"
+                loser.innerText = "You lost"                
+                document.body.appendChild(btn);
+
+                
             }else if (result === 21){
                 console.log("You won");
                 winner.innerText = "You won"
+                document.body.appendChild(btn)
+
+
             }
+
+            
         }
          getNewCard(2,11)
   
