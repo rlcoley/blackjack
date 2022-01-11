@@ -1,3 +1,12 @@
+// let sentence = ["Hello", "my", "name", "is", "Per"] 
+// let greetingEl = document.getElementById("greeting-el")
+
+// // Render the sentence in the greetingEl paragraph using a for loop and .textContent
+
+// for (let i = 0; i < sentence.length; i++) {
+//     greetingEl.textContent += sentence[i] + " "
+// }
+
 
 // set varaibales and create array
 
@@ -23,13 +32,13 @@ function startGame() {
     let result = 0
     
     // get random Number
-    function getRandomNumber(min, max) {
+    function getRandomNumber() {
 
         // get 2 random numbers between 2 and 11
         // add it to allCards array
         
-        allCards.push(((Math.floor)( Math.random() * (max - min) + min)) )
-        allCards.push(((Math.floor)( Math.random() * (max - min) + min)) )
+        allCards.push( Math.floor( Math.random()* 9 ) + 2 )
+        allCards.push( Math.floor( Math.random()* 9 ) + 2 )
         console.log(allCards);
         
 
@@ -46,7 +55,7 @@ function startGame() {
         sum.textContent = "Sum:" +  result
      }
     
-    getRandomNumber(2,11)
+    getRandomNumber()
     
 }
 
@@ -65,10 +74,10 @@ function newCard() {
     // if result is under 21 add a new card
 
     if (result < 21 ) {
-        function getNewCard(min, max) {
+        function getNewCard() {
 
             // get new random Number and add it to allCards
-            allCards.push(((Math.floor)( Math.random() * (max - min) + min)) )
+            allCards.push( Math.floor( Math.random()* 9 ) + 2 )
 
            //  get the value of the new card
            let newestCard = allCards[allCards.length- 1]
@@ -119,7 +128,7 @@ function newCard() {
             }
             
         }
-         getNewCard(2,11)
+         getNewCard()
   
     }
 
