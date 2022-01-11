@@ -6,10 +6,10 @@ let cardsEl = document.getElementById("cards-el")
 let sum = document.getElementById("sum")
 let winner = document.getElementById('winner')
 let loser = document.getElementById("loser")
-let allCards = []
+// let allCards = []
 
 
-// startGame
+// start Game
 
 function startGame() {
 
@@ -20,6 +20,7 @@ function startGame() {
     loser.innerText = ""
     sum.innerText = " "
     cardsEl.innerText = " "
+    let result = 0
     
     // get random Number
     function getRandomNumber(min, max) {
@@ -35,8 +36,11 @@ function startGame() {
         // change text of cardsEl to whats in allCards
         cardsEl.innerText = allCards
        
-        // add items in allCards together
-        let result = allCards[0] + allCards[1]
+        // add items in allCards together and make result eqaul the sum of it
+        for (let i = 0; i < allCards.length; i++) {
+              result += allCards[i];     
+        }
+
 
         // update text of sum
         sum.textContent = "Sum:" +  result
@@ -57,7 +61,6 @@ function newCard() {
           result += allCards[i];
         
     }
-
 
     // if result is under 21 add a new card
 
