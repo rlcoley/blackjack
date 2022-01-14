@@ -5,10 +5,20 @@ let cardsEl = document.getElementById("cards-el")
 let sum = document.getElementById("sum")
 let winner = document.getElementById('winner')
 let loser = document.getElementById("loser")
+let playerEl = document.getElementById("player-el")
+
 // let allCards = []
 
 
 // start Game
+
+let player = {
+    name: "Ross",
+    chips: 3000
+}
+
+
+playerEl.textContent = player.name + ": $" + player.chips
 
 function startGame() {
 
@@ -85,7 +95,7 @@ function newCard() {
             sum.textContent = "Sum: " +  result
 
             
-            // create new button and New Game as ots text
+            // create new button that says New Game
             var btn = document.createElement("BUTTON");
             btn.innerText = "New Game"
 
